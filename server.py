@@ -5,6 +5,7 @@ from selenium import webdriver
 
 app = Sanic("siteshot")
 
+# webshot
 @app.post("/webshot")
 async def webshot(request):
   url=request.data.get("url")
