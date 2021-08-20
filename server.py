@@ -3,7 +3,7 @@ from flask import Flask, make_response, request
 from selenium import webdriver
 
 app = Flask("siteshot")
-#reload
+# reload
 # webshot
 @app.route("/webshot")
 async def webshot():
