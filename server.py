@@ -1,14 +1,14 @@
 # import
-from sanic import Sanic
+from flask import Flask, make_response, request
 from sanic.response import *
 from selenium import webdriver
 
-app = Sanic("siteshot")
+app = Flask("siteshot")
 #reload
 # webshot
-@app.post("/webshot")
-async def webshot(request):
-  url=request.data.get("url")
+@app.route("/webshot")
+async def webshot():
+  url=request.args.get("url")
   option = webdriver.ChromeOptions()
   option.add_argument("--headless")
   option.add_argument("--lang=ja-JP,ja")
@@ -17,12 +17,9 @@ async def webshot(request):
   driver.get(url)
   driver.set_window_size(1280, 720)
   time.sleep(2)
-  driver.save_screenshot("captcha.png")
-  return await file("captcha.png")
-
-@app.route("/")
-async def main(request):
-  print("ok")
-  return text("hi")
+  response = make_response(driver.get_screenshot_as_png())
+  response.headers.set("Content-Type", "image/png")
+  driver.quit()
+  return response
 
 app.run(host="0.0.0.0", debug=True)
