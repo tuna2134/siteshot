@@ -1,2 +1,3 @@
 selenium
 sanic
+websockets==5.0.1
