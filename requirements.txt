@@ -1,3 +1,2 @@
 selenium
-sanic
-websockets==5.0.1
+git+https://github.com/sanic-org/sanic
