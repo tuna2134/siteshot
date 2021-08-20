@@ -20,6 +20,7 @@ async def webshot(request):
 
 @app.route("/")
 async def main(request):
+  print("ok")
   return text("hi")
 
 app.run(host="0.0.0.0", debug=True)
