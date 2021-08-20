@@ -1,6 +1,5 @@
 # import
 from flask import Flask, make_response, request
-from sanic.response import *
 from selenium import webdriver
 
 app = Flask("siteshot")
