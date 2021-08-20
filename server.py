@@ -18,4 +18,8 @@ async def webshot(request):
   driver.save_screenshot("captcha.png")
   return await file("captcha.png")
 
+@app.route("/")
+async def main(request):
+  return text("hi")
+
 app.run(host="0.0.0.0", port=8080)
