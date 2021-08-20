@@ -1,2 +1,2 @@
 selenium
-git+https://github.com/sanic-org/sanic
+flask
