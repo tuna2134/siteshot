@@ -1,24 +1,20 @@
-# import
-from flask import *
+from sanic import Sanic
+from sanic.response import *
 from selenium import webdriver
 
-app = Flask("siteshot")
-# reload
-# webshot
-@app.route("/webshot")
-def webshot():
-  url=request.args.get("url")
-  option = webdriver.ChromeOptions()
-  option.add_argument("--headless")
-  option.add_argument("--lang=ja-JP,ja")
-  option.add_experimental_option("prefs", {"intl.accept_languages": "ja,ja_JP"})
-  driver = webdriver.Chrome(options=option)
-  driver.get(url)
-  driver.set_window_size(1280, 720)
-  time.sleep(2)
-  response = make_response(driver.get_screenshot_as_png())
-  response.headers.set("Content-Type", "image/png")
-  driver.quit()
-  return response
+app=Sanic("app")
 
-app.run(host="0.0.0.0", debug=True)
+@app.post("/api")
+async def ss_api(request):
+    print("i")
+    url=request.json.get("url")
+    driver = webdriver.Firefox()
+    driver.implicitly_wait(3)
+    #driver.set_preference("intl.accept_languages", "ja")
+    driver.get(url)
+    with open("captcha.png", mode='wb') as local_file:
+      local_file.write(driver.get_screenshot_as_png())
+    driver.quit()
+    return await file(f"image/{name}.png")
+    
+app.run(host="0.0.0.0", port=8000, debug=True)
