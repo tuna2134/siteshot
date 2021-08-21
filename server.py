@@ -1,12 +1,12 @@
 # import
-from flask import Flask, make_response, request
+from flask import *
 from selenium import webdriver
 
 app = Flask("siteshot")
 # reload
 # webshot
 @app.route("/webshot")
-async def webshot():
+def webshot():
   url=request.args.get("url")
   option = webdriver.ChromeOptions()
   option.add_argument("--headless")
