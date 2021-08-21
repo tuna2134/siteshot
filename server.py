@@ -2,7 +2,6 @@ from sanic import Sanic
 from sanic.response import *
 from selenium import webdriver
 
-#prototype
 app=Sanic(__name__)
 
 # webshot
