@@ -17,6 +17,7 @@ async def ss_api(request):
     driver.implicitly_wait(3)
     #driver.set_preference("intl.accept_languages", "ja")
     driver.get(url)
+    driver.set_window_size(1280, 720)
     with open("captcha.png", mode='wb') as local_file:
       local_file.write(driver.get_screenshot_as_png())
     driver.quit()
