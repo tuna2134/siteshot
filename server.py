@@ -15,6 +15,6 @@ async def ss_api(request):
     with open("captcha.png", mode='wb') as local_file:
       local_file.write(driver.get_screenshot_as_png())
     driver.quit()
-    return await file(f"image/{name}.png")
+    return await file("captcha.png")
     
 app.run(host="0.0.0.0", port=8000, debug=True)
