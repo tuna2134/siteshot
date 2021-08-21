@@ -3,7 +3,7 @@ from sanic.response import *
 from selenium import webdriver
 
 #prototype
-app=Sanic()
+app=Sanic(__name__)
 
 @app.post("/api")
 async def ss_api(request):
