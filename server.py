@@ -3,7 +3,7 @@ from sanic.response import *
 from selenium import webdriver
 
 #prototype
-app=Sanic("app")
+app=Sanic()
 
 @app.post("/api")
 async def ss_api(request):
@@ -18,4 +18,5 @@ async def ss_api(request):
     driver.quit()
     return await file("captcha.png")
     
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8000, debug=True)
