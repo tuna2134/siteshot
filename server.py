@@ -9,6 +9,8 @@ app=Sanic(__name__)
 async def ss_api(request):
     print("i")
     url=request.json.get("url")
+    if not url.startswith("http://") or not url.startswith("https://"):
+        url="http://"+url
     option = webdriver.ChromeOptions()
     option.add_argument("--headless")
     option.add_argument("--lang=ja-JP,ja")
