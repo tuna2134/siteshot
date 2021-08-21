@@ -4,7 +4,7 @@ from selenium import webdriver
 
 app=Sanic(__name__)
 
-# webshot
+# webshot good
 @app.post("/api")
 async def ss_api(request):
     print("i")
