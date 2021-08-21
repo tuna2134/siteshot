@@ -14,7 +14,7 @@ async def ss_api(request):
     option.add_argument("--headless")
     option.add_argument("--lang=ja-JP,ja")
     option.add_experimental_option("prefs", {"intl.accept_languages": "ja,ja_JP"})
-    driver = webdriver.Chrome(options=option)
+    driver = webdriver.Chrome(options=option, executable_path="/app/.chromedriver/bin/chromedriver")
     driver.implicitly_wait(3)
     #driver.set_preference("intl.accept_languages", "ja")
     driver.get(url)
