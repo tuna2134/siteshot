@@ -2,6 +2,7 @@ from sanic import Sanic
 from sanic.response import *
 from selenium import webdriver
 
+#prototype
 app=Sanic("app")
 
 @app.post("/api")
