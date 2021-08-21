@@ -18,7 +18,7 @@ async def ss_api(request):
     driver = webdriver.Chrome(options=option, executable_path="/app/.chromedriver/bin/chromedriver")
     driver.implicitly_wait(3)
     driver.get(url)
-    driver.set_window_size(1920, 930)
+    driver.set_window_size(1830, 930)
     driver.maximize_window()
     with open("captcha.png", mode='wb') as local_file:
       local_file.write(driver.get_screenshot_as_png())
