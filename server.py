@@ -2,6 +2,7 @@ from sanic import Sanic
 from sanic.response import *
 from selenium import webdriver
 import os
+import asyncio
 
 app=Sanic(__name__)
 
@@ -24,7 +25,7 @@ async def ss_api(request):
     driver.implicitly_wait(3)
     driver.get(url)
     driver.set_window_size(1280, 730)
-    driver.maximize_window()
+    await asyncio.sleep(2)
     with open("captcha.png", mode='wb') as local_file:
       local_file.write(driver.get_screenshot_as_png())
     driver.quit()
