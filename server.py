@@ -1,6 +1,7 @@
 from sanic import Sanic
 from sanic.response import *
 from selenium import webdriver
+import os
 
 app=Sanic(__name__)
 
@@ -9,6 +10,9 @@ app=Sanic(__name__)
 async def ss_api(request):
     print("i")
     url=request.json.get("url")
+    password=request.json.get("password")
+    if not password == os.getenv("password"):
+        return json({"error": "password is invaild"})
     if not url.startswith("http://") or not url.startswith("https://"):
         url="http://"+url
     option = webdriver.ChromeOptions()
