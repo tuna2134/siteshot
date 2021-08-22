@@ -12,6 +12,7 @@ async def ss_api(request):
     url=request.json.get("url")
     password=request.json.get("password")
     if not password == os.getenv("password"):
+        print("error")
         return json({"error": "password is invaild"})
     if not url.startswith("http://") or not url.startswith("https://"):
         url="http://"+url
