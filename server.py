@@ -15,8 +15,6 @@ async def ss_api(request):
     if not password == os.getenv("password"):
         print("error")
         return json({"error": "password is invaild"})
-    if not url.startswith("http://") or not url.startswith("https://"):
-        url="http://"+url
     option = webdriver.ChromeOptions()
     option.add_argument("--headless")
     option.add_argument("--lang=ja-JP,ja")
