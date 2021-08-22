@@ -25,7 +25,7 @@ async def ss_api(request):
     driver.implicitly_wait(3)
     driver.get(url)
     driver.set_window_size(1280, 730)
-    await asyncio.sleep(4)
+    await asyncio.sleep(2)
     with open("captcha.png", mode='wb') as local_file:
       local_file.write(driver.get_screenshot_as_png())
     driver.quit()
