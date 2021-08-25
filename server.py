@@ -31,7 +31,7 @@ async def ss_api(request):
 
 @app.get("/manaba")
 async def automanaba(request):
-    user=os.getenv("user")
+    user="20612"
     option.add_argument("--headless")
     option.add_argument("--lang=ja-JP,ja")
     option.add_experimental_option("prefs", {"intl.accept_languages": "ja,ja_JP"})
