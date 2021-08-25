@@ -28,6 +28,25 @@ async def ss_api(request):
       local_file.write(driver.get_screenshot_as_png())
     driver.quit()
     return await file("captcha.png")
+
+@app.get("/manaba")
+async def automanaba(request):
+    user=os.getenv("user")
+    option.add_argument("--headless")
+    option.add_argument("--lang=ja-JP,ja")
+    option.add_experimental_option("prefs", {"intl.accept_languages": "ja,ja_JP"})
+    driver = webdriver.Chrome(options=option, executable_path="/app/.chromedriver/bin/chromedriver")
+    driver.implicitly_wait(3)
+    user=driver.find_element_by_id("mainuserid")
+    user.clear()
+    user.send_keys(user)
+    print("ok")
+    password=driver.find_element_by_name("password")
+    password.send_keys(user)
+    submit=driver.find_element_by_name("login")
+    submit.submit()
+    return text("ok")
+    
     
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000, debug=True)
