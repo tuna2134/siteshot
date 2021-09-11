@@ -1,3 +1,4 @@
+print("起動")
 from sanic import Sanic
 from sanic.response import *
 from selenium import webdriver
