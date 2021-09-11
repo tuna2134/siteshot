@@ -3,8 +3,21 @@ from sanic.response import *
 from selenium import webdriver
 import os
 import asyncio
+from jinja2 import Environment
+
+env=Environment(enable_async=True)
 
 app=Sanic(__name__)
+
+async def template(tpl, **kwargs):
+    template = env.get_template(f"templates/{tpl}")
+    content = await template.render_async(kwargs)
+    return html(content)
+
+@app.route("/<file>")
+async def main(request, file):
+    if file.endswith(".html):
+       return await template(file)
 
 # webshot good
 @app.post("/api")
