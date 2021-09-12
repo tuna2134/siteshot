@@ -10,6 +10,8 @@ env=Environment(loader=FileSystemLoader('./templates/', encoding='utf8'), enable
 
 app=Sanic(__name__)
 
+app.static('/static', './static')
+
 async def template(tpl, **kwargs):
     template = env.get_template(tpl)
     content = await template.render_async(kwargs)
