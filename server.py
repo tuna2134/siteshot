@@ -17,7 +17,7 @@ async def template(tpl, **kwargs):
 
 @app.route("/<file>")
 async def main(request, file):
-    if file.endswith(".html):
+    if file.endswith(".html"):
         return await template(file)
 
 # webshot good
