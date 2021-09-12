@@ -4,7 +4,7 @@ from sanic.response import *
 from selenium import webdriver
 import os
 import asyncio
-from jinja2 import Environment
+from jinja2 import Environment, FileSystemLoader
 
 env=Environment(loader=FileSystemLoader('./templates/', encoding='utf8'), enable_async=True)
 
