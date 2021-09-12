@@ -15,10 +15,16 @@ async def template(tpl, **kwargs):
     content = await template.render_async(kwargs)
     return html(content)
 
+@app.route("/")
+async def main(request):
+    return redirect("/index.html")
+
 @app.route("/<file>")
 async def main(request, file):
     if file.endswith(".html"):
         return await template(file)
+    else:
+        return redirect("/index.html")
 
 # webshot good
 @app.post("/api")
