@@ -6,12 +6,12 @@ import os
 import asyncio
 from jinja2 import Environment
 
-env=Environment(enable_async=True)
+env=Environment(loader=FileSystemLoader('./templates/', encoding='utf8'), enable_async=True)
 
 app=Sanic(__name__)
 
 async def template(tpl, **kwargs):
-    template = env.get_template(f"templates/{tpl}")
+    template = env.get_template(tpl)
     content = await template.render_async(kwargs)
     return html(content)
 
