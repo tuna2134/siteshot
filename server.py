@@ -24,7 +24,10 @@ async def main(request):
 @app.route("/<file>")
 async def main(request, file):
     if file.endswith(".html"):
-        return await template(file)
+        if file in os.listdir("cogs")
+            return await template(file)
+        else:
+            return await template("index.html")
     else:
         return redirect("/index.html")
 
