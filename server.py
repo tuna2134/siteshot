@@ -27,7 +27,7 @@ async def main(request, file):
         if file in os.listdir("templates"):
             return await template(file)
         else:
-            return await template("index.html")
+            return await template("404.html")
     else:
         return redirect("/index.html")
 
