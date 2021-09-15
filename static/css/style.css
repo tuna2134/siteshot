@@ -9,11 +9,10 @@ html {
   color: #f37053
 }
 
-.menu {
-  flex-direction: column;
-  color: #97cdf3;
+.menu a{
+  flex-direction: row;
 }
 
 .content {
-  margin-left: 120px;
+  text-algin: center;
 }
