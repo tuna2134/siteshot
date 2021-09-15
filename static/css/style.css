@@ -4,6 +4,11 @@ html {
   font-size: 100%;
 }
 
+#title {
+  text-algin: center;
+  color: #f37053
+}
+
 .menu {
   flex-direction: column;
   color: #97cdf3;
