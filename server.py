@@ -24,7 +24,7 @@ async def main(request):
 @app.route("/<file>")
 async def main(request, file):
     if file.endswith(".html"):
-        if file in os.listdir("cogs"):
+        if file in os.listdir("templates"):
             return await template(file)
         else:
             return await template("index.html")
