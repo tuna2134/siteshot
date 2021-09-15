@@ -1,4 +1,4 @@
-print("起動")
+print("起動しました")
 from sanic import Sanic
 from sanic.response import *
 from selenium import webdriver
