@@ -3,3 +3,12 @@
 html {
   font-size: 100%;
 }
+
+.menu {
+  flex-direction: column;
+  color: #97cdf3;
+}
+
+.content {
+  margin-left: 120px;
+}
