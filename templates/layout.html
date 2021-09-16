@@ -5,13 +5,15 @@
   <link href="/static/css/style.css" rel="stylesheet">
 </head>
 <body>
-  <h1 id="title">DMSブログ</h1>
+  <header>
+    <h1 id="title">DMSブログ</h1>
+    <nav>
+      <a href="hello.html">自己紹介</a>
+      <a href="download.html">ダウンロード</a>
+    </nav>
+  </header>
   <main>
-    <a href="hello.html">自己紹介</a>
-    <a href="download.html">ダウンロード</a>
-  </main>
-  <div class="content">
     {% block content %} {% endblock %}
-  </div>
+  </main>
 </body>
 </html>
