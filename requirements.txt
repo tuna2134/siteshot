@@ -4,3 +4,4 @@ gunicorn
 sanic-template
 matplotlib
 jinja2
+requests
