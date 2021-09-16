@@ -1,4 +1,4 @@
-print("起動しました")
+print("起動中")
 from sanic import Sanic
 from sanic.response import *
 from selenium import webdriver
@@ -75,3 +75,4 @@ async def automanaba(request):
     
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000, debug=True)
+    print("起動完了")
