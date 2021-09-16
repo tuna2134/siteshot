@@ -13,6 +13,7 @@ html {
   flex-direction: row;
 }
 
-.content {
-  text-algin: center;
+main{
+  margin: 50px auto;
+  text-align: center;
 }
