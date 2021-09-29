@@ -21,7 +21,7 @@ async def template(tpl, **kwargs):
 async def main(request):
     return redirect("/index.html")
 
-@app.route("/<file>")
+@app.route("/<file:path>")
 async def main(request, file):
     if file.endswith(".html"):
         if file in os.listdir("templates"):
