@@ -49,10 +49,9 @@ async def ss_api(request):
     driver.get(url)
     driver.set_window_size(1280, 730)
     await asyncio.sleep(2)
-    with open("captcha.png", mode='wb') as local_file:
-      local_file.write(driver.get_screenshot_as_png())
+    response = HTTPResponse(driver.get_screenshot_as_png(), content_type = "image/png")
     driver.quit()
-    return await file("captcha.png")
+    return response
 
 @app.get("/manaba")
 async def automanaba(request):
