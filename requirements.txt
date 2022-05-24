@@ -1,6 +1,5 @@
 selenium
 sanic
-gunicorn
 sanic-template
 matplotlib
 jinja2
