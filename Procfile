@@ -1,1 +1,1 @@
-web: gunicorn server:app --worker-class sanic.worker.GunicornWorker
+web: python3 main.py
